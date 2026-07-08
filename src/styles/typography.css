@@ -1,0 +1,55 @@
+.meta-text {
+  font-family: var(--font-mono);
+  font-size: var(--meta);
+  letter-spacing: 0.14em;
+  line-height: 1.65;
+  text-transform: uppercase;
+}
+
+.hero-display {
+  margin: 0;
+  font-size: var(--hero-display);
+  font-weight: 650;
+  letter-spacing: -0.045em;
+  line-height: 0.88;
+}
+
+.section-display {
+  margin: 0;
+  font-size: var(--section-display);
+  font-weight: 620;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.body-large {
+  font-size: var(--body-large);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.45;
+}
+
+.body-copy {
+  color: var(--text-secondary);
+  font-size: var(--body);
+  line-height: 1.7;
+}
+
+:lang(zh-CN) {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+}
+
+:lang(zh-CN) .meta-text {
+  font-family: var(--font-mono), "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", monospace;
+}
+
+:lang(zh-CN) .section-display {
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+}
+
+:lang(zh-CN) .body-large,
+:lang(zh-CN) .body-copy {
+  letter-spacing: 0;
+  line-height: 1.62;
+}

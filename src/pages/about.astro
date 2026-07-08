@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContentPageShell from '../components/core/ContentPageShell.astro';
+---
+
+<BaseLayout title="关于 — 岳一扬">
+  <main>
+    <ContentPageShell
+      eyebrow="YIYANG YUE"
+      title="工程师。<br />系统构建者。<br />连续实验者。"
+      intro="构建系统，交给现实，看什么活下来。"
+      blocks={[
+        {
+          label: 'NOW',
+          title: '当前状态',
+          body: '基于上海。全职构建 AI 系统、检索基础设施和商业实验。当前注意力分配：企业检索（50%）、ProQuote 分发（30%）、Agent runtime 研究（20%）。',
+        },
+        {
+          label: 'APPROACH',
+          title: '工作方法',
+          body: '先构建可运行的最小系统，交给真实用户，再从反馈中迭代。相信结构化的实验胜过猜测，可追溯的推理胜过直觉，经得起现实检验的代码胜过完美的设计。',
+          items: ['系统思维优先', '实验驱动而非计划驱动', '公开记录决策和结果'],
+        },
+        {
+          label: 'ORIENTATION',
+          title: '方向',
+          body: '对检索基础设施、Agent 运行时和知识系统的商业应用感兴趣。正在拉近构建与分发之间的距离。',
+        },
+      ]}
+    />
+  </main>
+</BaseLayout>

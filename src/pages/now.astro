@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContentPageShell from '../components/core/ContentPageShell.astro';
+---
+
+<BaseLayout title="此刻 — 岳一扬">
+  <main>
+    <ContentPageShell
+      eyebrow="01 / LIVE SIGNAL"
+      title="什么正在<br />占据我的注意力。"
+      intro="当前我在构建和调查的几个方向，按注意力排序。"
+      blocks={[
+        {
+          label: 'ENTERPRISE RETRIEVAL',
+          title: 'RAG 在生产环境中的差距',
+          body: '企业检索不能停在 Demo。真正的约束是证据路径的可追溯性、评估的覆盖率和部署环境中的非理想条件。正在构建一套评估优先的检索框架。',
+          items: ['证据路径追踪', '多维度评估套件', 'Azure 部署适配'],
+        },
+        {
+          label: 'PROQUOTE',
+          title: '从报价到签单的距离',
+          body: 'ProQuote 已上线，服务于托管 IT 服务商。交付后瓶颈从构建移到分发。目前在做渠道验证和分发实验。',
+        },
+        {
+          label: 'AGENT RUNTIME',
+          title: '工程化的 Agent 运行时',
+          body: 'Agent 系统从 demo 到可靠运行，需要控制执行边界、可观测性和状态持久化。正在构建一个轻量级的 Agent runtime 骨架。',
+        },
+      ]}
+    />
+  </main>
+</BaseLayout>

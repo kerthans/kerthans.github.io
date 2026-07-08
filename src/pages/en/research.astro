@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContentPageShell from '../../components/core/ContentPageShell.astro';
+---
+
+<BaseLayout title="Research — Yiyang Yue">
+  <main>
+    <ContentPageShell
+      eyebrow="02 / SYSTEM NOTES"
+      title="I AM TRYING<br />TO BECOME<br />HARDER TO FOOL."
+      intro="Research notes, reading logs, and systematic thinking. Not surveys — records of experiments."
+      blocks={[
+        {
+          label: 'RETRIEVAL SYSTEMS',
+          title: 'Evaluation-Driven Retrieval Engineering',
+          body: 'The real measure of a retrieval system is not NDCG or MRR but whether users find what they need in real tasks. Exploring eval suite design, coverage quantification, and traceable evidence paths.',
+          items: ['Building multi-dimension eval benchmarks', 'Evidence paths as retrieval output', 'Coverage and null result analysis'],
+        },
+        {
+          label: 'AGENT SYSTEMS',
+          title: 'Engineering Constraints of Agents',
+          body: 'From demo to production, the core challenges are execution boundaries, state consistency, and observability. Documenting agent runtime design decisions and experiments.',
+        },
+        {
+          label: 'COMMERCIAL EXPERIMENTS',
+          title: 'Real Constraints After Shipping',
+          body: 'ProQuote revealed a pattern: once software is built, the bottleneck shifts to distribution. Documenting the B2B journey from construction to market fit.',
+        },
+      ]}
+    />
+  </main>
+</BaseLayout>

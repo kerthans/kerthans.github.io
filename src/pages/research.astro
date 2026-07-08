@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContentPageShell from '../components/core/ContentPageShell.astro';
+---
+
+<BaseLayout title="研究 — 岳一扬">
+  <main>
+    <ContentPageShell
+      eyebrow="02 / SYSTEM NOTES"
+      title="我在努力<br />变得更难<br />被欺骗。"
+      intro="研究笔记、阅读记录和系统化思考。不是综述，是实验的记录。"
+      blocks={[
+        {
+          label: '检索系统',
+          title: '评估驱动的检索工程',
+          body: '检索系统真正的衡量标准不是 NDCG 或 MRR，而是用户在真实任务中能否找到所需信息。正在探索评估套件设计、覆盖率量化和可追溯性证据路径。',
+          items: ['构建多维度评估基准', '证据路径作为检索输出', '覆盖率和空结果分析'],
+        },
+        {
+          label: 'AGENT 系统',
+          title: 'Agent 的工程化约束',
+          body: 'Agent 从演示到生产，核心挑战是执行边界、状态一致性和可观测性。正在记录 Agent runtime 的设计决策和实验。',
+        },
+        {
+          label: '商业实验',
+          title: '系统交付后的真实约束',
+          body: 'ProQuote 的交付揭示了一个模式：软件构建完成后，瓶颈会转移到分发。记录 B2B 软件从构建到市场适配的过程。',
+        },
+      ]}
+    />
+  </main>
+</BaseLayout>

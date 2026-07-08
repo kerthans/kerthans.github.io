@@ -1,0 +1,79 @@
+---
+translationKey: proquote
+locale: en
+title: ProQuote
+record: '001'
+type: system
+year: 2026
+status: live
+thesis: Can software shorten the distance between an MSP's work and a signed quote?
+insight: Once the system shipped, the constraint moved from construction to distribution.
+featured: true
+order: 1
+metrics:
+  - value: LIVE
+    label: STATUS
+  - value: '2026'
+    label: SHIPPED
+  - value: B2B SOFTWARE
+    label: DOMAIN
+territories:
+  - commercial
+heroArtifact: quote-editor-screenshot
+---
+
+## OBSERVATION
+
+In managed IT services, every conversation eventually reaches a proposal. The proposal is not only a sales artifact. It is the first operational surface where scope, pricing, recurring revenue and trust become visible.
+
+The opportunity was to treat quoting as a system surface, not a formatted document.
+
+The gap was architectural.
+
+## THE BET
+
+A proposal tool built around the full quote-to-acceptance arc.
+
+The system handles quote construction, MRR calculation, one-time project scoping, template management, proposal layout, online acceptance, signature capture, win-data tracking and PDF export.
+
+The bet: if the quote and proposal share one commercial structure, the system can shorten the distance between service work and a signed decision.
+
+## WHAT I BUILT
+
+A quote editor. A proposal surface. An acceptance path.
+
+The system had three layers. **Construction.** A quote editor that understood MRR versus one-time work. Templates encoded pricing logic, not just layout. **Presentation.** A proposal renderer turned the same commercial structure into a client-ready document. **Acceptance.** Online acceptance and signature capture gave the proposal a direct decision path, with PDF export as a fallback surface.
+
+The important decision was shared structure: the editor and proposal surface render the same commercial model.
+
+## THE SYSTEM LEFT TRACES
+
+The product exists as a live system.
+
+ProQuote produces quotes, generates proposals, supports online acceptance and preserves PDF output. Once the system shipped, the constraint moved from construction to distribution.
+
+The trace is technical and strategic: a working quote-to-proposal pipeline, and a sharper question about how proposals actually enter MSP buying conversations.
+
+## THEN REALITY ANSWERED
+
+The system changed the shape of the question.
+
+After shipping, implementation stopped being the primary uncertainty. The next question became exposure: who needs this first, what workflow it enters, and whether the proposal is the wedge or the destination product.
+
+Reality moved the investigation outward.
+
+## THE DECISION
+
+CONTINUE
+
+The product system is live. The next experiment is distribution.
+
+Keep ProQuote operational. Do not add a larger feature layer until the channel is better understood.
+
+## WHAT REMAINED
+
+Some uncertainty cannot be reduced through better architecture.
+
+ProQuote sits in a live state. It can produce a quote, render a proposal and capture a signature. The next phase tests whether those capabilities meet a real distribution curve.
+
+Either outcome is signal.

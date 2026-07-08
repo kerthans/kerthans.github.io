@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+import { workSlug } from '../../lib/work';
+import WorkDetail from '../../components/field/WorkDetail.astro';
+import { getLocale } from '../../i18n/utils';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('work', ({ data }) => data.locale === 'zh-CN');
+  return entries.map((entry) => ({
+    params: { slug: workSlug(entry) },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const locale = getLocale(Astro.url.pathname);
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={entry.data.title}>
+  <main>
+    <WorkDetail entry={entry} locale={locale}>
+      <Content />
+    </WorkDetail>
+  </main>
+</BaseLayout>

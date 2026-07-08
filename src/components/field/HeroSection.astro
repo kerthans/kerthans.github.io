@@ -1,0 +1,222 @@
+---
+import type { Locale } from '../../i18n/utils';
+import { labels } from '../../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = labels[locale].hero;
+const signalLabel = locale === 'zh-CN' ? '当前信号' : 'CURRENT SIGNALS';
+---
+
+<section class="hero site-shell" data-signal-hero data-locale={locale}>
+  <div class="hero__top meta-text">
+    <span>SR / 01</span>
+    <span>SHANGHAI · UTC+8</span>
+    <span>SIGNAL ACQUIRED</span>
+  </div>
+
+  <div class="hero__grid">
+    <div class="hero__copy">
+      <h1 class="hero-display" aria-label={t.ariaLabel}>
+        {t.display.map((line, i) =>
+          i === t.display.length - 1 ? (
+            <span class="survives" data-spectral-text={t.spectralText}>{line}</span>
+          ) : (
+            <span>{line}</span>
+          )
+        )}
+      </h1>
+      <p class="hero__support body-large">
+        {t.support}
+      </p>
+      <a class="field-link meta-text" href="#field-records">{t.action}</a>
+    </div>
+
+    <aside class="hero__signals" aria-label={signalLabel}>
+      <div class="meta-text">{signalLabel}</div>
+      <ol class="meta-text">
+        <li><span>01</span> ENTERPRISE RETRIEVAL</li>
+        <li><span>02</span> PROQUOTE</li>
+        <li><span>03</span> TRACE-COVER</li>
+        <li><span>04</span> AGENT RUNTIME</li>
+      </ol>
+      <div class="hero__update meta-text">
+        <span>FIELD UPDATE</span>
+        <span>JUL / 2026</span>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<script>
+  const hero = document.querySelector<HTMLElement>('[data-signal-hero]');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (hero && !reduceMotion) {
+    hero.addEventListener('pointermove', (event: PointerEvent) => {
+      const rect = hero.getBoundingClientRect();
+      hero.style.setProperty('--signal-x', `${event.clientX - rect.left}px`);
+      hero.style.setProperty('--signal-y', `${event.clientY - rect.top}px`);
+    }, { passive: true });
+  }
+</script>
+
+<style>
+  .hero {
+    --signal-x: 52%;
+    --signal-y: 54%;
+    min-height: 100dvh;
+    padding-top: 7.5rem;
+    display: grid;
+    align-content: stretch;
+  }
+
+  .hero__top {
+    display: flex;
+    gap: clamp(1rem, 4vw, 3rem);
+    color: var(--text-muted);
+  }
+
+  .hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(14rem, 0.23fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: end;
+    padding: clamp(4rem, 9vw, 8rem) 0 clamp(3rem, 6vw, 5rem);
+  }
+
+  .hero__copy {
+    max-width: 92rem;
+  }
+
+  .hero-display span {
+    display: block;
+  }
+
+  .hero[data-locale="zh-CN"] .hero-display {
+    font-size: clamp(3.55rem, 7.6vw, 7.5rem);
+    line-height: 0.94;
+    letter-spacing: -0.02em;
+  }
+
+  .survives {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .survives::before,
+  .survives::after {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    content: attr(data-spectral-text);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 360ms var(--ease-out);
+  }
+
+  .survives::before {
+    color: var(--amethyst);
+    transform: translate(1px, 0);
+    mask-image: radial-gradient(180px at var(--signal-x) var(--signal-y), black, transparent 72%);
+  }
+
+  .survives::after {
+    color: var(--trace-blue);
+    transform: translate(-1px, 1px);
+    mask-image: radial-gradient(150px at var(--signal-x) var(--signal-y), black, transparent 74%);
+  }
+
+  .hero:hover .survives::before,
+  .hero:hover .survives::after {
+    opacity: 0.38;
+  }
+
+  .hero__support {
+    max-width: 46rem;
+    margin: clamp(1.6rem, 3vw, 2.4rem) 0 0;
+    color: var(--text-secondary);
+  }
+
+  .field-link {
+    display: inline-grid;
+    margin-top: clamp(2rem, 4vw, 3.5rem);
+    padding-bottom: 0.7rem;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--line-active);
+    transition: color 260ms var(--ease-out), border-color 260ms var(--ease-out), transform 260ms var(--ease-out);
+  }
+
+  .field-link:hover {
+    color: var(--amethyst);
+    border-color: var(--amethyst);
+    transform: translateX(0.35rem);
+  }
+
+  .hero__signals {
+    display: grid;
+    gap: 1.6rem;
+    color: var(--text-muted);
+    padding-bottom: 0.7rem;
+  }
+
+  .hero__signals ol {
+    display: grid;
+    gap: 0.7rem;
+    margin: 0;
+    padding: 1.15rem 0;
+    list-style: none;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero__signals li {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 0.8rem;
+  }
+
+  .hero__signals li span,
+  .hero__update span:first-child {
+    color: var(--text-ghost);
+  }
+
+  .hero__update {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  @media (max-width: 980px) {
+    .hero__grid {
+      grid-template-columns: 1fr;
+      align-items: start;
+    }
+
+    .hero__signals {
+      max-width: 32rem;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .hero {
+      padding-top: 6.25rem;
+    }
+
+    .hero__top {
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .hero-display {
+      font-size: clamp(3.55rem, 18vw, 6rem);
+      line-height: 0.9;
+    }
+
+    .hero__support {
+      max-width: 20rem;
+    }
+  }
+</style>

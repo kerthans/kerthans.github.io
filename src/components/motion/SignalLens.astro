@@ -1,0 +1,58 @@
+---
+interface Props {
+  text: string;
+  radius?: string;
+}
+
+const { text, radius = '200px' } = Astro.props;
+---
+
+<span data-lens data-lens-text={text} style={`--lens-radius: ${radius}`}>
+  {text}
+</span>
+
+<script>
+  import { initSignalLens } from '@/lib/signal-lens';
+  for (const el of document.querySelectorAll<HTMLElement>('[data-lens]')) {
+    initSignalLens(el);
+  }
+</script>
+
+<style>
+  [data-lens] {
+    --lens-x: 50%;
+    --lens-y: 50%;
+    position: relative;
+    isolation: isolate;
+  }
+
+  [data-lens]::before,
+  [data-lens]::after {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    content: attr(data-lens-text);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 360ms var(--ease-out);
+  }
+
+  [data-lens][data-lens="active"]:hover::before,
+  [data-lens][data-lens="active"]:hover::after {
+    opacity: 0.38;
+  }
+
+  [data-lens]::before {
+    color: var(--amethyst);
+    transform: translate(1px, 0);
+    mask-image: radial-gradient(var(--lens-radius) at var(--lens-x) var(--lens-y), black, transparent 72%);
+    -webkit-mask-image: radial-gradient(var(--lens-radius) at var(--lens-x) var(--lens-y), black, transparent 72%);
+  }
+
+  [data-lens]::after {
+    color: var(--trace-blue);
+    transform: translate(-1px, 1px);
+    mask-image: radial-gradient(calc(var(--lens-radius) * 0.83) at var(--lens-x) var(--lens-y), black, transparent 74%);
+    -webkit-mask-image: radial-gradient(calc(var(--lens-radius) * 0.83) at var(--lens-x) var(--lens-y), black, transparent 74%);
+  }
+</style>

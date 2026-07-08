@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContentPageShell from '../../components/core/ContentPageShell.astro';
+---
+
+<BaseLayout title="Now — Yiyang Yue">
+  <main>
+    <ContentPageShell
+      eyebrow="01 / LIVE SIGNAL"
+      title="WHAT HAS<br />MY ATTENTION."
+      intro="The directions I am actively building and investigating, ordered by attention."
+      blocks={[
+        {
+          label: 'ENTERPRISE RETRIEVAL',
+          title: 'The Gap Between RAG and Production',
+          body: 'Enterprise retrieval cannot stop at the demo. The real constraints are evidence traceability, evaluation coverage, and non-ideal deployment conditions. Building an evaluation-first retrieval framework.',
+          items: ['Evidence path tracing', 'Multi-dimension eval suite', 'Azure deployment adaptation'],
+        },
+        {
+          label: 'PROQUOTE',
+          title: 'From Quote to Signed',
+          body: 'ProQuote is live, serving managed IT service providers. Post-delivery the bottleneck moved from construction to distribution. Currently running channel validation and distribution experiments.',
+        },
+        {
+          label: 'AGENT RUNTIME',
+          title: 'Engineering the Agent Runtime',
+          body: 'Agent systems require execution boundaries, observability, and state persistence to go from demo to reliable. Building a lightweight agent runtime skeleton.',
+        },
+      ]}
+    />
+  </main>
+</BaseLayout>

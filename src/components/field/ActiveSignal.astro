@@ -1,0 +1,158 @@
+---
+import type { Locale } from '../../i18n/utils';
+import { labels } from '../../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = labels[locale].activeSignal;
+---
+
+<section class="active-signal site-shell" id="field-records" data-locale={locale}>
+  <div class="section-meta">
+    <span>01 / ACTIVE SIGNAL</span>
+    <span>{t.label}</span>
+  </div>
+
+  <div class="active-signal__layout">
+    <h2 class="section-display" set:html={t.headline}></h2>
+
+    <article class="active-signal__primary" data-active-signal>
+      <div class="active-signal__index meta-text">ENTERPRISE RETRIEVAL</div>
+      <p class="body-large">{t.primary}</p>
+      <ul class="active-signal__terms meta-text" aria-label="Retrieval focus areas">
+        {t.terms.map((term) => <li>{term}</li>)}
+      </ul>
+      <div class="active-signal__evidence meta-text" aria-hidden="true">
+        <span>OBSERVE</span>
+        <span>BUILD</span>
+        <span>EXPOSE</span>
+        <span>TRACE</span>
+      </div>
+    </article>
+  </div>
+
+  <div class="signal-rows" aria-label="Secondary signals">
+    {t.secondary.map(([name, type]) => (
+      <div class="signal-row meta-text">
+        <span>{name}</span>
+        <span>{type}</span>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .active-signal {
+    padding-top: clamp(8rem, 16vw, 15rem);
+  }
+
+  .active-signal__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(22rem, 0.72fr);
+    gap: clamp(3rem, 8vw, 8rem);
+    margin-top: clamp(3rem, 7vw, 6rem);
+    align-items: start;
+  }
+
+  .active-signal__primary {
+    position: relative;
+    min-height: 30rem;
+    padding: clamp(1.5rem, 3vw, 2.5rem) 0 0 clamp(1.4rem, 3vw, 2.5rem);
+    border-top: 1px solid var(--line-active);
+    border-left: 1px solid var(--line);
+  }
+
+  .active-signal__primary::before {
+    position: absolute;
+    inset: 0;
+    content: '';
+    pointer-events: none;
+    background-image:
+      linear-gradient(to right, rgba(157, 124, 255, 0.12) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(157, 124, 255, 0.08) 1px, transparent 1px);
+    background-size: 52px 52px;
+    opacity: 0.18;
+    mask-image: linear-gradient(135deg, black, transparent 66%);
+  }
+
+  .active-signal__index {
+    color: var(--amethyst);
+  }
+
+  .active-signal__primary p {
+    position: relative;
+    max-width: 28rem;
+    margin: 4rem 0 0;
+  }
+
+  .active-signal__terms {
+    position: relative;
+    display: grid;
+    gap: 0.7rem;
+    margin: 2rem 0 0;
+    padding: 0;
+    color: var(--text-secondary);
+    list-style: none;
+  }
+
+  .active-signal__evidence {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(7rem, 1fr));
+    gap: 0.55rem 1rem;
+    color: var(--text-ghost);
+  }
+
+  .signal-rows {
+    display: grid;
+    margin-top: clamp(4rem, 8vw, 7rem);
+    border-top: 1px solid var(--line);
+  }
+
+  .signal-row {
+    display: grid;
+    grid-template-columns: minmax(10rem, 0.45fr) 1fr;
+    gap: 1rem;
+    padding: 1.1rem 0;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .signal-row span:first-child {
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 900px) {
+    .active-signal__layout {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .active-signal {
+      padding-top: 7rem;
+    }
+
+    .active-signal__primary {
+      min-height: 27rem;
+    }
+
+    .active-signal__evidence {
+      position: relative;
+      right: auto;
+      bottom: auto;
+      margin-top: 4rem;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .signal-row {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+    }
+  }
+</style>

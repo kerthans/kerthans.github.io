@@ -1,0 +1,43 @@
+---
+import '../styles/global.css';
+import SiteHeader from '../components/core/SiteHeader.astro';
+import SiteFooter from '../components/core/SiteFooter.astro';
+import { alternateHref, getLocale, labels } from '../i18n/utils';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const locale = getLocale(Astro.url.pathname);
+const defaults = labels[locale];
+const { title = defaults.title, description = defaults.description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const zhAlternate = new URL(alternateHref('zh-CN', Astro.url.pathname), Astro.site).toString();
+const enAlternate = new URL(alternateHref('en', Astro.url.pathname), Astro.site).toString();
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" href={zhAlternate} hreflang="x-default" />
+    <link rel="alternate" href={zhAlternate} hreflang="zh-CN" />
+    <link rel="alternate" href={enAlternate} hreflang="en" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <div class="calibration-grid" aria-hidden="true"></div>
+    <SiteHeader locale={locale} />
+    <slot />
+    <SiteFooter locale={locale} />
+  </body>
+</html>

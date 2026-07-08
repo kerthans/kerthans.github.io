@@ -1,0 +1,177 @@
+---
+import type { Locale } from '../../i18n/utils';
+import { navItems, ui } from '../../i18n/ui';
+import { localizedPath, counterpartHref } from '../../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = ui[locale];
+const zhHref = counterpartHref('zh-CN', Astro.url.pathname);
+const enHref = counterpartHref('en', Astro.url.pathname);
+---
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__identity meta-text" href={localizedPath(locale, '/')} aria-label="Yiyang Signal Room home">
+      YIYANG / SR-01
+    </a>
+    <div class="site-header__right">
+      <nav class="site-header__nav meta-text" aria-label="Primary navigation">
+        {navItems.map(({ key, path }) => <a href={localizedPath(locale, path)}>{t.nav[key]}</a>)}
+      </nav>
+      <div class="site-header__lang meta-text">
+        <a href={zhHref} class:list={{ 'is-active': locale === 'zh-CN' }}>ZH</a>
+        <span aria-hidden="true">/</span>
+        <a href={enHref} class:list={{ 'is-active': locale === 'en' }}>EN</a>
+      </div>
+    </div>
+    <details class="site-header__menu">
+      <summary class="meta-text">{t.menu}</summary>
+      <nav class="site-header__panel meta-text" aria-label="Mobile navigation">
+        {navItems.map(({ key, path }) => <a href={localizedPath(locale, path)}>{t.nav[key]}</a>)}
+        <div class="site-header__panel-lang">
+          <a href={zhHref} class:list={{ 'is-active': locale === 'zh-CN' }}>ZH</a>
+          <span aria-hidden="true">/</span>
+          <a href={enHref} class:list={{ 'is-active': locale === 'en' }}>EN</a>
+        </div>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 40;
+    border-bottom: 1px solid rgba(238, 234, 246, 0.06);
+    background: linear-gradient(180deg, rgba(9, 8, 13, 0.88), rgba(9, 8, 13, 0.58));
+  }
+
+  .site-header__inner {
+    display: flex;
+    width: min(100%, var(--content-max));
+    height: 68px;
+    margin: 0 auto;
+    padding: 0 var(--page-pad);
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .site-header__identity {
+    color: var(--text-primary);
+    white-space: nowrap;
+  }
+
+  .site-header__right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .site-header__nav {
+    display: flex;
+    gap: clamp(0.85rem, 2vw, 1.55rem);
+    color: var(--text-muted);
+  }
+
+  .site-header__nav a {
+    transition: color 240ms var(--ease-out);
+  }
+
+  .site-header__nav a:hover {
+    color: var(--text-primary);
+  }
+
+  .site-header__lang {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+    color: var(--text-muted);
+  }
+
+  .site-header__lang a {
+    transition: color 240ms var(--ease-out);
+  }
+
+  .site-header__lang a.is-active {
+    color: var(--text-primary);
+  }
+
+  .site-header__lang a:hover:not(.is-active) {
+    color: var(--text-primary);
+  }
+
+  .site-header__lang span {
+    opacity: 0.25;
+  }
+
+  .site-header__menu {
+    display: none;
+  }
+
+  @media (max-width: 760px) {
+    .site-header__inner {
+      height: 62px;
+    }
+
+    .site-header__nav {
+      display: none;
+    }
+
+    .site-header__lang {
+      display: none;
+    }
+
+    .site-header__menu {
+      position: relative;
+      display: block;
+      color: var(--text-muted);
+    }
+
+    .site-header__menu summary {
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .site-header__menu summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .site-header__panel {
+      position: absolute;
+      top: 2.1rem;
+      right: 0;
+      display: grid;
+      min-width: 11rem;
+      gap: 0.95rem;
+      padding: 1rem 0 0 1rem;
+      color: var(--text-primary);
+      border-top: 1px solid var(--line-active);
+      background: rgba(9, 8, 13, 0.96);
+    }
+
+    .site-header__panel-lang {
+      display: flex;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--line);
+      color: var(--text-muted);
+    }
+
+    .site-header__panel-lang a.is-active {
+      color: var(--text-primary);
+    }
+
+    .site-header__panel-lang span {
+      opacity: 0.25;
+    }
+  }
+</style>
