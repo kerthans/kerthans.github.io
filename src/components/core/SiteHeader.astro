@@ -15,8 +15,8 @@ const enHref = counterpartHref('en', Astro.url.pathname);
 
 <header class="site-header">
   <div class="site-header__inner">
-    <a class="site-header__identity meta-text" href={localizedPath(locale, '/')} aria-label="Yiyang Signal Room home">
-      YIYANG / SR-01
+    <a class="site-header__identity meta-text" href={localizedPath(locale, '/')} aria-label="Yiyang Yue home">
+      {locale === 'zh-CN' ? '岳一扬' : 'YIYANG YUE'}
     </a>
     <div class="site-header__right">
       <nav class="site-header__nav meta-text" aria-label="Primary navigation">

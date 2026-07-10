@@ -1,8 +1,8 @@
-# Signal Room Design Contract
+# Site Design Contract
 
 ## Visual Direction
 
-Signal Room is a dark field-log interface for systems, signals, and experiments. Preserve the existing amethyst-on-void palette, mono metadata labels, large compressed display type, hairline dividers, and sparse operational density.
+This is a dark personal project site for systems, research, and commercial experiments. Preserve the existing amethyst-on-void palette, mono metadata labels, large compressed display type, hairline dividers, and sparse operational density.
 
 ## Tokens
 
@@ -25,7 +25,7 @@ Signal Room is a dark field-log interface for systems, signals, and experiments.
 
 - No fake screenshots, fake benchmarks, fake testimonials, or invented metrics.
 - If an artifact is not available, name it as pending.
-- Work records should read as field notes: observation, bet, construction, trace, decision, remainder.
+- Work records should read as concrete project notes: background, idea, what was built, current state, next steps.
 
 ## Component Rules
 

@@ -35,7 +35,7 @@ const zh = locale === 'zh-CN';
   <div class="hairline"></div>
 
   <div class="field-record__row">
-    <span class="field-record__label meta-text">{zh ? '信号类型' : 'SIGNAL TYPE'}</span>
+    <span class="field-record__label meta-text">{zh ? '类型' : 'TYPE'}</span>
     <span class="field-record__value body-large">{signalType}</span>
   </div>
 
@@ -49,7 +49,7 @@ const zh = locale === 'zh-CN';
   <div class="hairline"></div>
 
   <div class="field-record__row">
-    <span class="field-record__label meta-text">{zh ? '核心问题 / 论点' : 'CORE QUESTION / THESIS'}</span>
+    <span class="field-record__label meta-text">{zh ? '核心问题' : 'THE QUESTION'}</span>
     <p class="field-record__value body-large">{coreQuestion}</p>
   </div>
 
@@ -69,16 +69,16 @@ const zh = locale === 'zh-CN';
   <div class="hairline"></div>
 
   <div class="field-record__row">
-    <span class="field-record__label meta-text">{zh ? '提炼洞察' : 'DISTILLED INSIGHT'}</span>
+    <span class="field-record__label meta-text">{zh ? '一句话结论' : 'TAKEAWAY'}</span>
     <p class="field-record__value body-large">{insight}</p>
   </div>
 
   <div class="hairline"></div>
 
   <div class="field-record__row">
-    <span class="field-record__label meta-text">{zh ? '制品' : 'ARTIFACT'}</span>
+    <span class="field-record__label meta-text">{zh ? '截图' : 'SCREENSHOT'}</span>
     <div class="field-record__artifact">
-      <span class="meta-text">{zh ? '制品待上传' : 'ARTIFACT PENDING'}</span>
+      <span class="meta-text">{zh ? '截图待补' : 'PENDING'}</span>
     </div>
   </div>
 
@@ -86,7 +86,7 @@ const zh = locale === 'zh-CN';
 
   <div class="field-record__open">
     <a class="field-record__link meta-text" href={recordUrl}>
-      {zh ? '打开记录 ↗' : 'OPEN FIELD RECORD ↗'}
+      {zh ? '查看项目 ↗' : 'VIEW PROJECT ↗'}
     </a>
   </div>
 </section>

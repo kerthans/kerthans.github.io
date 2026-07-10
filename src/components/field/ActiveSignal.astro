@@ -12,7 +12,7 @@ const t = labels[locale].activeSignal;
 
 <section class="active-signal site-shell" id="field-records" data-locale={locale}>
   <div class="section-meta">
-    <span>01 / ACTIVE SIGNAL</span>
+    <span>01</span>
     <span>{t.label}</span>
   </div>
 
@@ -25,12 +25,6 @@ const t = labels[locale].activeSignal;
       <ul class="active-signal__terms meta-text" aria-label="Retrieval focus areas">
         {t.terms.map((term) => <li>{term}</li>)}
       </ul>
-      <div class="active-signal__evidence meta-text" aria-hidden="true">
-        <span>OBSERVE</span>
-        <span>BUILD</span>
-        <span>EXPOSE</span>
-        <span>TRACE</span>
-      </div>
     </article>
   </div>
 
@@ -98,16 +92,6 @@ const t = labels[locale].activeSignal;
     list-style: none;
   }
 
-  .active-signal__evidence {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(7rem, 1fr));
-    gap: 0.55rem 1rem;
-    color: var(--text-ghost);
-  }
-
   .signal-rows {
     display: grid;
     margin-top: clamp(4rem, 8vw, 7rem);
@@ -140,14 +124,6 @@ const t = labels[locale].activeSignal;
 
     .active-signal__primary {
       min-height: 27rem;
-    }
-
-    .active-signal__evidence {
-      position: relative;
-      right: auto;
-      bottom: auto;
-      margin-top: 4rem;
-      grid-template-columns: 1fr 1fr;
     }
 
     .signal-row {

@@ -31,7 +31,7 @@ export const ui: Record<Locale, {
   },
   en: {
     nav: {
-      home: 'FIELD',
+      home: 'HOME',
       work: 'WORK',
       now: 'NOW',
       research: 'RESEARCH',

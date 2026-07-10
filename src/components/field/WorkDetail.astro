@@ -22,7 +22,7 @@ const typeLabels: Record<string, string> = zh
 <article class="work-detail site-shell">
   <header class="work-detail__hero">
     <div class="section-meta work-detail__meta">
-      <span>{zh ? '现场记录' : 'FIELD RECORD'}</span>
+      <span>{zh ? '项目' : 'PROJECT'}</span>
       <span>{entry.data.record} / {statusLabels[entry.data.status]}</span>
     </div>
 
@@ -37,7 +37,7 @@ const typeLabels: Record<string, string> = zh
   <section class="work-detail__panel" aria-label={zh ? '记录摘要' : 'Record summary'}>
     <div class="hairline"></div>
     <div class="work-detail__row">
-      <span class="meta-text">{zh ? '提炼洞察' : 'DISTILLED INSIGHT'}</span>
+      <span class="meta-text">{zh ? '一句话结论' : 'TAKEAWAY'}</span>
       <p class="body-large">{entry.data.insight}</p>
     </div>
     <div class="hairline"></div>
@@ -49,14 +49,14 @@ const typeLabels: Record<string, string> = zh
     </div>
     <div class="hairline"></div>
     <div class="work-detail__row">
-      <span class="meta-text">{zh ? '制品状态' : 'ARTIFACT STATE'}</span>
+      <span class="meta-text">{zh ? '截图' : 'SCREENSHOT'}</span>
       <p class="body-copy">
-        {entry.data.heroArtifact ? (zh ? '真实制品待接入。' : 'Real artifact pending integration.') : (zh ? '暂无制品。' : 'No artifact attached yet.')}
+        {entry.data.heroArtifact ? (zh ? '产品截图待补。' : 'Product screenshots pending.') : (zh ? '暂无截图。' : 'No screenshots attached yet.')}
       </p>
     </div>
   </section>
 
-  <section class="work-detail__body" aria-label={zh ? '记录正文' : 'Record body'}>
+  <section class="work-detail__body" aria-label={zh ? '项目正文' : 'Project body'}>
     <slot />
   </section>
 </article>

@@ -22,7 +22,7 @@ export const artifactInventory: ArtifactInventoryItem[] = [
   },
   {
     project: 'Vulcan',
-    label: 'Signal -> Forge -> Yield diagram',
+    label: 'Opportunity pipeline diagram',
     status: 'PLACEHOLDER',
     note: 'Use deliberate technical placeholder until real artifact is selected.',
   },
@@ -34,7 +34,7 @@ export const artifactInventory: ArtifactInventoryItem[] = [
   },
   {
     project: 'Ossa',
-    label: 'Station -> Event -> Evidence -> Opportunity model',
+    label: 'Evidence-backed opportunity model',
     status: 'PLACEHOLDER',
     note: 'Use real model diagram in Phase 3.',
   },

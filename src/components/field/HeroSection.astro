@@ -8,14 +8,14 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = labels[locale].hero;
-const signalLabel = locale === 'zh-CN' ? '当前信号' : 'CURRENT SIGNALS';
+const signalLabel = locale === 'zh-CN' ? '目前在做' : 'CURRENTLY';
 ---
 
 <section class="hero site-shell" data-signal-hero data-locale={locale}>
   <div class="hero__top meta-text">
-    <span>SR / 01</span>
+    <span>{locale === 'zh-CN' ? '岳一扬' : 'YIYANG YUE'}</span>
+    <span>{locale === 'zh-CN' ? '全栈 / AI 系统' : 'FULL-STACK / AI SYSTEMS'}</span>
     <span>SHANGHAI · UTC+8</span>
-    <span>SIGNAL ACQUIRED</span>
   </div>
 
   <div class="hero__grid">
@@ -44,8 +44,8 @@ const signalLabel = locale === 'zh-CN' ? '当前信号' : 'CURRENT SIGNALS';
         <li><span>04</span> AGENT RUNTIME</li>
       </ol>
       <div class="hero__update meta-text">
-        <span>FIELD UPDATE</span>
-        <span>JUL / 2026</span>
+        <span>{locale === 'zh-CN' ? '更新于' : 'UPDATED'}</span>
+        <span>{locale === 'zh-CN' ? '2026 年 7 月' : 'JUL 2026'}</span>
       </div>
     </aside>
   </div>
