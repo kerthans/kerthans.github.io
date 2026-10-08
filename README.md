@@ -1,15 +1,7 @@
-# YIYANG / SIGNAL ROOM
+# Personal website · legacy entry
 
-Personal signal observatory for Yiyang Yue.
+The personal website is live at [www.airyyy.tech](https://www.airyyy.tech/).
 
-## Commands
+This repository preserves the earlier Astro site. GitHub Pages is configured with the custom domain `www.airyyy.tech`, so `https://kerthans.github.io/` permanently redirects to the current website.
 
-```bash
-npm install
-npm run dev
-npm run build
-```
-
-## Deployment
-
-GitHub Pages deploys the static Astro build through `.github/workflows/deploy.yml`.
+The current source is [kerthans/airyyy](https://github.com/kerthans/airyyy). Vercel tracks its `master` branch and builds the `web/` directory. Domain hosting and DNS remain on Vercel.
