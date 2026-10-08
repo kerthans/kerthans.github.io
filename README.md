@@ -23,8 +23,8 @@ My personal website has moved to **[www.airyyy.tech](https://www.airyyy.tech/)**
 
 ## 发布方式
 
-GitHub Pages 从 `main` 分支根目录发布静态文件，无需安装 Node.js、Astro 或任何应用依赖，也无需自定义 Actions 工作流。
+启用 GitHub Pages 时，选择 **Deploy from a branch**，发布分支设为 `main`、目录设为 `/ (root)`，自定义域名设为 `www.airyyy.tech`。静态文件无需安装 Node.js、Astro 或任何应用依赖，也无需自定义 Actions 工作流。
 
-旧入口使用 GitHub Pages 的自定义域名机制跳转；目标域名的 DNS、HTTPS 与网站托管继续由 Vercel 管理。
+GitHub Pages 启用后，旧入口通过自定义域名机制跳转；目标域名的 DNS、HTTPS 与网站托管继续由 Vercel 管理。
 
 如需更新文章、项目案例或简历，请在当前网站工程中维护；这个仓库只维护迁移入口。
